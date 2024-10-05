@@ -1,0 +1,53 @@
+{
+    "name": "mock-ui",
+    "version": "0.0.1",
+    "scripts": {
+        "dev": "vite dev",
+        "build": "vite build && npm run package",
+        "preview": "vite preview",
+        "package": "svelte-kit sync && svelte-package && publint",
+        "prepublishOnly": "npm run package",
+        "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+        "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+        "lint": "prettier --check .",
+        "format": "prettier --write ."
+    },
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "svelte": "./dist/index.js"
+        }
+    },
+    "files": [
+        "dist",
+        "!dist/**/*.test.*",
+        "!dist/**/*.spec.*"
+    ],
+    "peerDependencies": {
+        "svelte": "^5.0.0-next.1"
+    },
+    "devDependencies": {
+        "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
+        "@sveltejs/adapter-auto": "^3.2.5",
+        "@sveltejs/kit": "^2.6.1",
+        "@sveltejs/package": "^2.3.5",
+        "@sveltejs/vite-plugin-svelte": "^4.0.0-next.7",
+        "prettier": "^3.3.3",
+        "prettier-plugin-svelte": "^3.2.7",
+        "prettier-plugin-tailwindcss": "^0.6.8",
+        "publint": "^0.2.11",
+        "svelte": "^5.0.0-next.262",
+        "svelte-check": "^4.0.4",
+        "typescript": "^5.6.2",
+        "vite": "^5.4.8"
+    },
+    "svelte": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "type": "module",
+    "dependencies": {
+        "@tailwindcss/vite": "^4.0.0-alpha.26",
+        "clsx": "^2.1.1",
+        "tailwind-merge": "^2.5.3",
+        "tailwindcss": "^4.0.0-alpha.26"
+    }
+}
