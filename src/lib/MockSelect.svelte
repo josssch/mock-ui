@@ -1,8 +1,15 @@
 <script lang="ts">
     import type { HTMLSelectAttributes } from 'svelte/elements'
 
+    import {
+        COMPONENT_BORDER_HOCUS,
+        COMPONENT_DISABLED,
+    } from './tailwind-common.js'
+    import cn from './utils/class-merge.js'
+
     let {
         children,
+        class: clazz,
         value = $bindable(),
         ...props
     }: HTMLSelectAttributes & {} = $props()
@@ -10,7 +17,12 @@
 
 <select
     {...props}
-    class="border-blur focus:border-focus enabled:hover:border-focus rounded-default px-md py-sm bg-subtle border-1 transition-colors disabled:cursor-not-allowed disabled:text-current/50"
+    class={cn(
+        'rounded-default group/select px-md py-sm bg-subtle transition-colors',
+        COMPONENT_BORDER_HOCUS,
+        COMPONENT_DISABLED,
+        clazz,
+    )}
     bind:value
 >
     {#if children}

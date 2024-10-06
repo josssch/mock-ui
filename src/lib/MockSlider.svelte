@@ -1,6 +1,7 @@
 <script lang="ts">
     import type { HTMLInputAttributes } from 'svelte/elements'
 
+    import { COMPONENT_BORDER, COMPONENT_DISABLED } from './tailwind-common.js'
     import cn from './utils/class-merge.js'
 
     let {
@@ -13,7 +14,9 @@
 <input
     {...props}
     class={cn(
-        'bg-subtle border-blur h-2 appearance-none rounded-full border-1',
+        'bg-subtle h-2 appearance-none rounded-full',
+        COMPONENT_BORDER,
+        COMPONENT_DISABLED,
         clazz,
     )}
     type="range"
@@ -30,7 +33,7 @@
             border-radius: calc(infinity * 1px);
 
             background: var(--color-primary);
-            border: 1px solid var(--color-blur);
+            border: 1px solid var(--color-edge);
 
             transition: all var(--default-transition-duration)
                 var(--default-transition-timing-function);
@@ -41,7 +44,7 @@
         &::-webkit-slider-thumb,
         &::-moz-range-thumb {
             background: var(--color-primary-lighter);
-            border-color: var(--color-focus);
+            border-color: var(--color-edge-focused);
         }
     }
 </style>

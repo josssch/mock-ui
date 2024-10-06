@@ -12,6 +12,10 @@
     import type { Snippet } from 'svelte'
     import type { HTMLInputAttributes } from 'svelte/elements'
 
+    import {
+        COMPONENT_BORDER_FOCUS,
+        COMPONENT_DISABLED,
+    } from './tailwind-common.js'
     import cn from './utils/class-merge.js'
 
     let {
@@ -22,13 +26,13 @@
         class: clazz,
         ...props
     }: MockInputProps = $props()
+
+    const sideStyles = 'absolute top-1/2 size-6 -translate-y-1/2'
 </script>
 
-<div class="group-input relative">
+<div class="group/input relative [--color-background:_var(--color-subtle)]">
     {#if left}
-        <span
-            class="absolute top-1/2 left-1.5 size-6 -translate-y-1/2 overflow-hidden"
-        >
+        <span class="{sideStyles} left-1.5">
             {@render left()}
         </span>
     {/if}
@@ -37,7 +41,9 @@
         {...props}
         {type}
         class={cn(
-            'rounded-default bg-subtle px-md py-sm border-blur focus:border-focus border-1 transition-colors disabled:text-current/50 disabled:hover:cursor-not-allowed',
+            'rounded-default bg-subtle px-md py-sm transition-colors',
+            COMPONENT_BORDER_FOCUS,
+            COMPONENT_DISABLED,
             left && 'pl-8',
             right && 'pr-8',
             clazz,
@@ -46,9 +52,7 @@
     />
 
     {#if right}
-        <span
-            class="absolute top-1/2 right-1.5 size-6 -translate-y-1/2 overflow-hidden"
-        >
+        <span class="{sideStyles} right-1.5">
             {@render right()}
         </span>
     {/if}

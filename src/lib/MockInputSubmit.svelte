@@ -3,13 +3,8 @@
 
     import HeroCircleArrow from './icons/HeroCircleArrow.svelte'
     import MockInput from './MockInput.svelte'
-    import cn from './utils/class-merge.js'
 
-    let {
-        class: clazz,
-        value = $bindable(''),
-        ...props
-    }: MockInputProps = $props()
+    let { value = $bindable(''), ...props }: MockInputProps = $props()
 </script>
 
 {#snippet submit()}
@@ -24,6 +19,5 @@
 <MockInput
     {...props}
     right={submit}
-    class={cn('pr-8', clazz)}
     bind:value
 />

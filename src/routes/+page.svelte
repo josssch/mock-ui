@@ -3,6 +3,7 @@
     import MockButton from '$lib/MockButton.svelte'
     import MockCheckbox from '$lib/MockCheckbox.svelte'
     import MockInput from '$lib/MockInput.svelte'
+    import MockInputMultiline from '$lib/MockInputMultiline.svelte'
     import MockInputSubmit from '$lib/MockInputSubmit.svelte'
     import MockRadio from '$lib/MockRadio.svelte'
     import MockSelect from '$lib/MockSelect.svelte'
@@ -14,20 +15,24 @@
     <HeroDollar class="text-focus size-6" />
 {/snippet}
 
-<div class="gap-xl p-xl flex flex-wrap items-start">
-    <!-- Buttons -->
+{#snippet heading(/** @type {string} */ text)}
+    <h1 class="w-full text-center text-3xl font-bold">{text}</h1>
+{/snippet}
+
+<div class="gap-xl p-xl flex flex-wrap items-start justify-center">
+    {@render heading('Buttons')}
+
     <MockButton>
         {@render icon()}
         <span>Some Text</span>
     </MockButton>
 
-    <a href="#button">
-        <MockButton
-            label="Ghost"
-            ghost
-            small
-        />
-    </a>
+    <MockButton
+        href="#button"
+        label="Ghost"
+        ghost
+        small
+    />
 
     <MockButton
         label="Disabled"
@@ -36,7 +41,7 @@
 
     <MockButton circle>{@render icon()}</MockButton>
 
-    <!-- Inputs -->
+    {@render heading('Inputs')}
 
     <MockInput
         left={icon}
@@ -55,7 +60,13 @@
         />
     </form>
 
-    <!-- Checkboxes -->
+    <MockInputMultiline placeholder="So many lines" />
+    <MockInputMultiline
+        placeholder="No lines for you"
+        disabled
+    />
+
+    {@render heading('Checkboxes')}
 
     <MockCheckbox
         label="Check Me"
@@ -79,7 +90,7 @@
         disabled
     />
 
-    <!-- Select (mostly native) -->
+    {@render heading('Selection')}
 
     <MockSelect>
         <optgroup label="Foo">
@@ -94,9 +105,11 @@
 
     <MockSelect disabled></MockSelect>
 
-    <!-- Misc -->
+    {@render heading('Slider')}
 
     <MockSlider />
+
+    {@render heading('Radio Buttons')}
 
     <ul>
         <li>

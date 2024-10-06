@@ -2,6 +2,7 @@
 
 @theme {
     /* Component Style Configuration */
+
     --default-font-family: 'Recia', sans-serif;
     --default-transition-duration: 300ms;
 
@@ -11,13 +12,24 @@
     --color-primary: var(--color-blue-600);
     --color-primary-darker: var(--color-blue-700);
 
+    --color-secondary-lighter: var(--color-rose-500);
+    --color-secondary: var(--color-rose-600);
+    --color-secondary-darker: var(--color-rose-700);
+
     --color-subtle-lighter: var(--color-stone-600);
     --color-subtle: var(--color-stone-700);
     --color-subtle-darker: var(--color-stone-800);
 
+    /* Page Colors */
+
+    --color-background: var(--color-stone-900);
+    --color-text: var(--color-stone-100);
+
     /* Border Colors */
-    --color-blur: rgba(255, 255, 255, 0.25);
-    --color-focus: rgba(255, 255, 255, 0.5);
+
+    --color-edge: rgba(255, 255, 255, 0.25);
+    --color-edge-focused: rgba(255, 255, 255, 0.5);
+    --color-edge-disabled: transparent;
 
     /* Utility */
 
@@ -30,8 +42,14 @@
     --spacing-3xl: var(--spacing-32);
 }
 
-*:focus {
+*:focus-visible {
     outline: none;
+
+    /*
+        I dislike this, however, in this case there is a lot being handled,
+        but generally it's always better to type CSS rather than using macros
+    */
+    @apply ring-primary ring-offset-background ring ring-offset-2 transition-shadow;
 }
 
 html,
@@ -41,8 +59,8 @@ body {
 }
 
 body {
-    background-color: var(--color-stone-900);
-    color: var(--color-stone-100);
+    background-color: var(--color-background);
+    color: var(--color-text);
 
     height: 100%;
 }
