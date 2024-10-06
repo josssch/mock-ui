@@ -53,6 +53,11 @@
         disabled
     />
 
+    <MockInput
+        placeholder="Ghost"
+        ghost
+    />
+
     <form action="#submitted">
         <MockInputSubmit
             type="password"

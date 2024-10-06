@@ -1,6 +1,24 @@
-<script lang="ts">
+<script
+    lang="ts"
+    context="module"
+>
     import type { HTMLButtonAttributes } from 'svelte/elements'
+    import type {
+        ComponentGhostStyleProp,
+        ComponentLabelProp,
+    } from './types/component-prop-types.js'
 
+    export interface MockButtonProps
+        extends HTMLButtonAttributes,
+            ComponentGhostStyleProp,
+            ComponentLabelProp {
+        href?: string
+        circle?: boolean
+        small?: boolean
+    }
+</script>
+
+<script lang="ts">
     import {
         COMPONENT_BORDER_HOCUS,
         COMPONENT_DISABLED,
@@ -17,14 +35,7 @@
         small = false,
         circle = false,
         ...props
-    }: HTMLButtonAttributes & {
-        href?: string
-        label?: string
-        ghost?: boolean
-        circle?: boolean
-        small?: boolean
-        class?: string
-    } = $props()
+    }: MockButtonProps = $props()
 
     const isButton = $derived(!href)
 </script>

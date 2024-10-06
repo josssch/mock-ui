@@ -1,6 +1,13 @@
-<script lang="ts">
+<script
+    lang="ts"
+    context="module"
+>
     import type { HTMLInputAttributes } from 'svelte/elements'
 
+    export interface MockSliderProps extends HTMLInputAttributes {}
+</script>
+
+<script lang="ts">
     import { COMPONENT_BORDER, COMPONENT_DISABLED } from './tailwind-common.js'
     import cn from './utils/class-merge.js'
 
@@ -8,7 +15,7 @@
         value = $bindable(0),
         class: clazz,
         ...props
-    }: HTMLInputAttributes = $props()
+    }: MockSliderProps = $props()
 </script>
 
 <input

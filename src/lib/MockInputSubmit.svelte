@@ -1,10 +1,17 @@
-<script lang="ts">
+<script
+    lang="ts"
+    context="module"
+>
     import type { MockInputProps } from './MockInput.svelte'
 
+    export interface MockInputSubmitProps extends MockInputProps {}
+</script>
+
+<script lang="ts">
     import HeroCircleArrow from './icons/HeroCircleArrow.svelte'
     import MockInput from './MockInput.svelte'
 
-    let { value = $bindable(''), ...props }: MockInputProps = $props()
+    let { value = $bindable(''), ...props }: MockInputSubmitProps = $props()
 </script>
 
 {#snippet submit()}

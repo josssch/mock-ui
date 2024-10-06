@@ -1,21 +1,30 @@
-<script lang="ts">
+<script
+    lang="ts"
+    context="module"
+>
     import type { HTMLInputAttributes } from 'svelte/elements'
-    import type { SnippetOrString } from './utils/snippet-or-string.js'
+    import type { ComponentLabelProp } from './types/component-prop-types.js'
 
+    export interface MockSwitchProps
+        extends HTMLInputAttributes,
+            ComponentLabelProp {}
+</script>
+
+<script lang="ts">
     import {
         COMPONENT_BORDER_HOCUS,
         COMPONENT_DISABLED,
         COMPONENT_DISABLED_CONTAINER,
     } from './tailwind-common.js'
     import cn from './utils/class-merge.js'
-    import { toSnippet } from './utils/snippet-or-string.js'
 
     let {
+        children,
         label,
         checked = $bindable(false),
         class: clazz,
         ...props
-    }: HTMLInputAttributes & { label: SnippetOrString } = $props()
+    }: MockSwitchProps = $props()
 </script>
 
 <label
@@ -36,6 +45,10 @@
     />
 
     <span class="peer-disabled:text-current/50">
-        {@render toSnippet(label)()}
+        {#if children}
+            {@render children()}
+        {:else if label}
+            {label}
+        {/if}
     </span>
 </label>

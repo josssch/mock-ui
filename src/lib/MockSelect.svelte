@@ -1,6 +1,13 @@
-<script lang="ts">
+<script
+    lang="ts"
+    context="module"
+>
     import type { HTMLSelectAttributes } from 'svelte/elements'
 
+    export interface MockSelectProps extends HTMLSelectAttributes {}
+</script>
+
+<script lang="ts">
     import {
         COMPONENT_BORDER_HOCUS,
         COMPONENT_DISABLED,
@@ -12,7 +19,7 @@
         class: clazz,
         value = $bindable(),
         ...props
-    }: HTMLSelectAttributes & {} = $props()
+    }: MockSelectProps = $props()
 </script>
 
 <select

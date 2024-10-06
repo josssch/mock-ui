@@ -1,6 +1,13 @@
-<script lang="ts">
+<script
+    lang="ts"
+    context="module"
+>
     import type { HTMLTextareaAttributes } from 'svelte/elements'
 
+    export interface MockInputMultilineProps extends HTMLTextareaAttributes {}
+</script>
+
+<script lang="ts">
     import {
         COMPONENT_BORDER_FOCUS,
         COMPONENT_DISABLED,
@@ -11,7 +18,7 @@
         value = $bindable(''),
         class: clazz,
         ...props
-    }: HTMLTextareaAttributes = $props()
+    }: MockInputMultilineProps = $props()
 </script>
 
 <textarea
