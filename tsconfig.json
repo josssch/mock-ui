@@ -10,6 +10,14 @@
         "sourceMap": true,
         "strict": true,
         "module": "NodeNext",
-        "moduleResolution": "NodeNext"
+        "moduleResolution": "NodeNext",
+
+        "plugins": [
+            {
+                "name": "typescript-svelte-plugin",
+                "enabled": true,
+                "assumeIsSvelteProject": false
+            }
+        ]
     }
 }
