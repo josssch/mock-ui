@@ -1,6 +1,6 @@
 <script
     lang="ts"
-    context="module"
+    module
 >
     import type { Snippet } from 'svelte'
     import type { HTMLInputAttributes } from 'svelte/elements'

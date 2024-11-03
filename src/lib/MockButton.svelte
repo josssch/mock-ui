@@ -1,6 +1,6 @@
 <script
     lang="ts"
-    context="module"
+    module
 >
     import type { HTMLButtonAttributes } from 'svelte/elements'
     import type {

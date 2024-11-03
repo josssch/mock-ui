@@ -1,6 +1,6 @@
 <script
     lang="ts"
-    context="module"
+    module
 >
     import type { HTMLInputAttributes } from 'svelte/elements'
     import type { ComponentLabelProp } from './types/component-prop-types.js'

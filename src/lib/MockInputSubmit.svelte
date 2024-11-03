@@ -1,6 +1,6 @@
 <script
     lang="ts"
-    context="module"
+    module
 >
     import type { MockInputProps } from './MockInput.svelte'
 
