@@ -14,4 +14,4 @@ export const COMPONENT_BORDER_HOCUS = `${COMPONENT_BORDER_FOCUS} enabled:hover:b
 export const COMPONENT_DISABLED =
     'disabled:border-edge-disabled disabled:cursor-not-allowed disabled:text-current/50'
 
-export const COMPONENT_DISABLED_CONTAINER = 'has-[:disabled]:cursor-not-allowed'
+export const COMPONENT_DISABLED_CONTAINER = 'has-disabled:cursor-not-allowed'

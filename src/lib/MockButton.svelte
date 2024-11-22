@@ -50,7 +50,7 @@
     {href}
     {type}
     class={cn(
-        'gap-sm group/button disabled:bg-subtle flex cursor-pointer flex-wrap items-center font-medium',
+        'group/button disabled:bg-subtle gap-sm flex cursor-pointer flex-wrap items-center font-medium',
         COMPONENT_DISABLED,
         ghost
             ? 'hover:underline'
