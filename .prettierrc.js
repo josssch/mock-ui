@@ -22,7 +22,6 @@ export default {
 
     tailwindAttributes: ['tw', 'class'],
     tailwindFunctions: ['clsx', 'twMerge', 'cn'],
-    tailwindConfig: './tailwind.config.js',
 
     importOrder: [
         '<TYPES>',
