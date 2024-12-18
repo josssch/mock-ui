@@ -75,6 +75,7 @@ Things I'd like to accomplish in this component library in order for me to consi
     - [ ] Add track fill, preferably without the need for JavaScript
 - [ ] `shadcn/ui`-like CLI for installing components
 - [ ] For components where they are comprised of several HTML elements, it's not immediately clear where the rest of the `$props()` go. Furthermore, it's _annoying_ you have to even choose where they go, **a prop grouping API** where other elements can be specified with a prefix (e.g. `<el>-<prop>`, `label-class="max-w-36"` makes `class` apply to `label`, `svg-class="size-24"` applies `class` to a given `svg`, etc.)
+- [ ] Consistently use CSS variables for coloring, this way setting a variable can trickle down to child elements and overall feel more natural to change (a lot like what's done in `MockInput` for `ghost`)
 
 ## Final Notes
 
