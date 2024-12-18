@@ -63,7 +63,18 @@ All classes passed into `class` on all components are merged with `tailwind-merg
 
 All components are designed to be keyboard accessible, by keeping them as simple and as close to their original counterparts as possible. All components work with plain `<form>` tags.
 
+## Todo
+
+Things I'd like to accomplish in this component library in order for me to consider it complete.
+
+- [x] `MockFileSelect`
+    - [ ] Make inner `MockButton` not require an onclick handler, likely the solution will be replacing the button with a different element
+- [x] `MockSlider`
+    - [ ] Add track fill, preferably without the need for JavaScript
+- [ ] `shadcn/ui`-like CLI for installing components
+- [ ] For components where they are comprised of several HTML elements, it's not immediately clear where the rest of the `$props()` go. Furthermore, it's _annoying_ you have to even choose where they go, **a prop grouping API** where other elements can be specified with a prefix (e.g. `<el>-<prop>`, `label-class="max-w-36"` makes `class` apply to `label`, `svg-class="size-24"` applies `class` to a given `svg`, etc.)
+
 ## Final Notes
 
--   I have not set this up to be used as a library, but more as a boilerplate repository
--   The current set of components currently are focused around being form compatible
+- I have not set this up to be used as a library, but more as a boilerplate repository
+- The current set of components currently are focused around being form compatible
