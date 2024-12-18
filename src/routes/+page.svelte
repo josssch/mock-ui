@@ -2,6 +2,7 @@
     import HeroDollar from '$lib/icons/HeroDollar.svelte'
     import MockButton from '$lib/MockButton.svelte'
     import MockCheckbox from '$lib/MockCheckbox.svelte'
+    import MockFileSelect from '$lib/MockFileSelect.svelte'
     import MockInput from '$lib/MockInput.svelte'
     import MockInputMultiline from '$lib/MockInputMultiline.svelte'
     import MockInputSubmit from '$lib/MockInputSubmit.svelte'
@@ -143,4 +144,10 @@
             />
         </li>
     </ul>
+
+    {@render heading('File Select')}
+
+    <MockFileSelect />
+    <MockFileSelect multiple />
+    <MockFileSelect disabled />
 </div>
