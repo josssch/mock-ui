@@ -69,6 +69,8 @@ Things I'd like to accomplish in this component library in order for me to consi
 
 - [x] `MockFileSelect`
     - [ ] Make inner `MockButton` not require an onclick handler, likely the solution will be replacing the button with a different element
+- [x] `MockSelect`
+    - [ ] Fix default appearance in Safari to not be glossy
 - [x] `MockSlider`
     - [ ] Add track fill, preferably without the need for JavaScript
 - [ ] `shadcn/ui`-like CLI for installing components
