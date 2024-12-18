@@ -18,7 +18,7 @@ export type GroupsFrom<P extends Props, Groups extends string[]> = {
     }
 }
 
-export default function getPerElementProps<S extends string[], P extends Props>(
+export default function getPerElementProps<P extends Props, S extends string[]>(
     props: P,
     ...groups: S
 ): GroupsFrom<P, S> {

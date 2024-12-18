@@ -2,12 +2,19 @@
     lang="ts"
     module
 >
-    import type { HTMLInputAttributes } from 'svelte/elements'
+    import type {
+        HTMLAttributes,
+        HTMLInputAttributes,
+        HTMLLabelAttributes,
+    } from 'svelte/elements'
     import type { ComponentLabelProp } from './types/component-prop-types.js'
+    import type { PropsFor } from './utils/per-element-props.js'
 
     export interface MockRadioProps
         extends HTMLInputAttributes,
-            ComponentLabelProp {
+            ComponentLabelProp,
+            PropsFor<'wrapper', HTMLLabelAttributes>,
+            PropsFor<'span', HTMLAttributes<HTMLSpanElement>> {
         group?: string
     }
 </script>
@@ -19,6 +26,7 @@
         COMPONENT_DISABLED_CONTAINER,
     } from './tailwind-common.js'
     import cn from './utils/class-merge.js'
+    import getPerElementProps from './utils/per-element-props.js'
 
     let {
         children,
@@ -28,10 +36,20 @@
         class: clazz,
         ...props
     }: MockRadioProps = $props()
+
+    let {
+        wrapper: { class: wrapperClass, ...wrapperProps },
+        span: { class: spanClass, ...spanProps },
+    } = $derived(getPerElementProps(props, 'wrapper', 'span'))
 </script>
 
 <label
-    class="gap-md group/radio relative inline-flex items-center {COMPONENT_DISABLED_CONTAINER}"
+    {...wrapperProps}
+    class={cn(
+        'gap-md group/radio relative inline-flex items-center',
+        COMPONENT_DISABLED_CONTAINER,
+        wrapperClass,
+    )}
 >
     <input
         {...props}
@@ -48,7 +66,10 @@
         bind:group
     />
 
-    <span class="peer-disabled:text-current/50">
+    <span
+        {...spanProps}
+        class={cn('peer-disabled:text-current/50', spanClass)}
+    >
         {#if children}
             {@render children()}
         {:else if label}

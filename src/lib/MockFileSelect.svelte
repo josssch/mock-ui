@@ -2,14 +2,23 @@
     lang="ts"
     module
 >
-    import type { HTMLInputAttributes } from 'svelte/elements'
+    import type {
+        HTMLAttributes,
+        HTMLButtonAttributes,
+        HTMLInputAttributes,
+        HTMLLabelAttributes,
+    } from 'svelte/elements'
     import type { ComponentLabelProp } from './types/component-prop-types.js'
+    import type { PropsFor } from './utils/per-element-props.js'
 
     import cn from './utils/class-merge.js'
 
     export interface MockFileProps
         extends HTMLInputAttributes,
-            ComponentLabelProp {
+            ComponentLabelProp,
+            PropsFor<'wrapper', HTMLLabelAttributes>,
+            PropsFor<'span', HTMLAttributes<HTMLSpanElement>>,
+            PropsFor<'button', HTMLButtonAttributes> {
         files?: FileList | null
     }
 </script>
@@ -17,6 +26,7 @@
 <script lang="ts">
     import MockButton from './MockButton.svelte'
     import { COMPONENT_DISABLED_CONTAINER } from './tailwind-common.js'
+    import getPerElementProps from './utils/per-element-props.js'
 
     let {
         label,
@@ -28,34 +38,52 @@
         ...props
     }: MockFileProps = $props()
 
+    let {
+        wrapper: { class: wrapperClass, ...wrapperProps },
+        span: { class: spanClass, ...spanProps },
+        button: { onclick: buttonOnClick, ...buttonProps },
+    } = $derived(getPerElementProps(props, 'button', 'span', 'wrapper'))
+
     let fileInputRef: HTMLInputElement | null = $state(null)
 </script>
 
 <label
+    {...wrapperProps}
     class={cn(
         'gap-md group/file flex flex-wrap items-center',
         COMPONENT_DISABLED_CONTAINER,
         clazz,
+        wrapperClass,
     )}
 >
     <input
+        {...props}
         bind:this={fileInputRef}
         type="file"
         class="hidden"
         bind:files
         {multiple}
         {disabled}
-        {...props}
     />
 
     <MockButton
-        onclick={() => fileInputRef?.click()}
+        {...buttonProps}
+        onclick={event => {
+            buttonOnClick?.(event)
+            if (event.defaultPrevented) return
+
+            fileInputRef?.click()
+        }}
         label="Browse..."
         {disabled}
     />
 
     <span
-        class="truncate group-has-disabled/file:text-current/50 hover:text-clip"
+        {...spanProps}
+        class={cn(
+            'truncate group-has-disabled/file:text-current/50 hover:text-clip',
+            spanClass,
+        )}
     >
         {#if label}
             {label}

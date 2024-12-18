@@ -2,12 +2,18 @@
     lang="ts"
     module
 >
-    import type { HTMLAttributes, HTMLInputAttributes } from 'svelte/elements'
+    import type {
+        HTMLAttributes,
+        HTMLInputAttributes,
+        HTMLLabelAttributes,
+    } from 'svelte/elements'
     import type { ComponentLabelProp } from './types/component-prop-types.js'
+    import type { PropsFor } from './utils/per-element-props.js'
 
     export interface MockCheckboxProps
         extends HTMLInputAttributes,
             ComponentLabelProp,
+            PropsFor<'wrapper', HTMLLabelAttributes>,
             PropsFor<'icon', HTMLAttributes<SVGElement>>,
             PropsFor<'span', HTMLAttributes<HTMLSpanElement>> {
         group?: string[]
@@ -15,8 +21,6 @@
 </script>
 
 <script lang="ts">
-    import type { PropsFor } from './utils/per-element-props.js'
-
     import HeroCheck from './icons/HeroCheck.svelte'
     import {
         COMPONENT_BORDER_HOCUS,
@@ -38,13 +42,19 @@
     let {
         icon: { class: iconClass, ...iconProps },
         span: { class: spanClass, ...spanProps },
-    } = $derived(getPerElementProps(props, 'icon', 'span'))
+        wrapper: { class: wrapperClass, ...wrapperProps },
+    } = $derived(getPerElementProps(props, 'icon', 'span', 'wrapper'))
 
     const size = 'size-4'
 </script>
 
 <label
-    class="gap-md group/checkbox relative inline-flex items-center {COMPONENT_DISABLED_CONTAINER}"
+    {...wrapperProps}
+    class={cn(
+        'gap-md group/checkbox relative inline-flex items-center',
+        COMPONENT_DISABLED_CONTAINER,
+        wrapperClass,
+    )}
 >
     <input
         {...props}
