@@ -24,7 +24,7 @@
 <textarea
     {...props}
     class={cn(
-        'rounded-default bg-subtle py-sm px-md resize-none transition-colors',
+        'rounded-default bg-subtle py-sm px-md field-sizing-content resize-none transition-colors',
         COMPONENT_BORDER_FOCUS,
         COMPONENT_DISABLED,
         clazz,
