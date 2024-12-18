@@ -16,6 +16,7 @@
 
 <script lang="ts">
     import MockButton from './MockButton.svelte'
+    import { COMPONENT_DISABLED_CONTAINER } from './tailwind-common.js'
 
     let {
         label,
@@ -31,9 +32,9 @@
 </script>
 
 <label
-    aria-disabled={disabled}
     class={cn(
-        'gap-md group/file flex flex-wrap items-center aria-disabled:cursor-not-allowed',
+        'gap-md group/file flex flex-wrap items-center',
+        COMPONENT_DISABLED_CONTAINER,
         clazz,
     )}
 >
@@ -54,7 +55,7 @@
     />
 
     <span
-        class="truncate group-aria-disabled/file:text-current/50 hover:text-clip"
+        class="truncate group-has-disabled/file:text-current/50 hover:text-clip"
     >
         {#if label}
             {label}
