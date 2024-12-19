@@ -54,7 +54,7 @@
         COMPONENT_DISABLED,
         ghost
             ? 'hover:underline'
-            : `${COMPONENT_BORDER_HOCUS} enabled:from-primary enabled:to-primary-lighter rounded-default bg-gradient-to-t transition active:transition-none enabled:active:translate-y-0.5`,
+            : `${COMPONENT_BORDER_HOCUS} enabled:from-component enabled:to-component-lighter rounded-default bg-gradient-to-t transition active:transition-none enabled:active:translate-y-0.5`,
         // unless we have the `small` flag, apply padding
         // and make it even based on whether it's a circle
         !small ? (circle ? 'p-sm' : 'px-md py-sm') : '',

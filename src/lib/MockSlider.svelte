@@ -39,7 +39,7 @@
             /* stolen from `rounded-full`, even though 999px would be fine */
             border-radius: calc(infinity * 1px);
 
-            background: var(--color-primary);
+            background: var(--color-component);
             border: 1px solid var(--color-edge);
 
             transition: all var(--default-transition-duration)
@@ -50,7 +50,7 @@
     input:active {
         &::-webkit-slider-thumb,
         &::-moz-range-thumb {
-            background: var(--color-primary-lighter);
+            background: var(--color-component-lighter);
             border-color: var(--color-edge-focused);
         }
     }

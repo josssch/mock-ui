@@ -36,7 +36,7 @@
     <input
         {...props}
         class={cn(
-            'bg-subtle peer enabled:hover:bg-subtle-lighter checked:bg-primary enabled:checked:hover:bg-primary-lighter peer relative size-4 appearance-none rounded-full transition-colors after:scale-0 checked:after:scale-100',
+            'bg-subtle peer enabled:hover:bg-subtle-lighter checked:bg-component enabled:checked:hover:bg-component-lighter peer relative size-4 appearance-none rounded-full transition-colors after:scale-0 checked:after:scale-100',
             COMPONENT_BORDER_HOCUS,
             COMPONENT_DISABLED,
             //

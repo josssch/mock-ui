@@ -33,7 +33,7 @@
     <input
         {...props}
         class={cn(
-            'bg-subtle enabled:hover:bg-subtle-lighter enabled:checked:hover:bg-primary-lighter checked:bg-primary peer relative h-4 w-8 shrink-0 appearance-none rounded-full transition-colors',
+            'bg-subtle enabled:hover:bg-subtle-lighter enabled:checked:hover:bg-component-lighter checked:bg-component peer relative h-4 w-8 shrink-0 appearance-none rounded-full transition-colors',
             COMPONENT_BORDER_HOCUS,
             COMPONENT_DISABLED,
             // Circle Part

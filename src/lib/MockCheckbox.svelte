@@ -39,7 +39,7 @@
     <input
         {...props}
         class={cn(
-            'peer bg-subtle enabled:hover:bg-subtle-lighter enabled:checked:hover:bg-primary-lighter enabled:checked:bg-primary shrink-0 appearance-none rounded-sm transition-colors disabled:border-transparent',
+            'peer bg-subtle enabled:hover:bg-subtle-lighter enabled:checked:hover:bg-component-lighter enabled:checked:bg-component shrink-0 appearance-none rounded-sm transition-colors disabled:border-transparent',
             COMPONENT_BORDER_HOCUS,
             COMPONENT_DISABLED,
             size,

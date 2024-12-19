@@ -28,6 +28,10 @@
         <span>Some Text</span>
     </MockButton>
 
+    <div class="component [--color-component:_var(--color-secondary)]">
+        <MockButton label="Different Color!" />
+    </div>
+
     <MockButton
         href="#button"
         label="Ghost"
