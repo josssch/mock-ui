@@ -28,8 +28,13 @@
         <span>Some Text</span>
     </MockButton>
 
-    <div class="component [--color-component:_var(--color-secondary)]">
-        <MockButton label="Different Color!" />
+    <div class="component-secondary contents">
+        <MockButton label="Secondary Color!" />
+
+        <MockButton
+            class="component-purple-600"
+            label="Some Other Color"
+        />
     </div>
 
     <MockButton
@@ -95,6 +100,7 @@
     />
 
     <MockSwitch
+        class="component-secondary"
         label="No Switching Me"
         checked
         disabled

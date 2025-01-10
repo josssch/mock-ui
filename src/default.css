@@ -20,17 +20,9 @@
     --color-subtle: var(--color-stone-700);
     --color-subtle-darker: var(--color-stone-800);
 
+    /* Default Component Color */
+
     --color-component: var(--color-primary);
-    --color-component-lighter: color-mix(
-        in oklab,
-        var(--color-component) 85%,
-        white
-    );
-    --color-component-darker: color-mix(
-        in oklab,
-        var(--color-component) 85%,
-        black
-    );
 
     /* Page Colors */
 
@@ -52,14 +44,7 @@
     --spacing-xl: calc(var(--spacing) * 8);
     --spacing-2xl: calc(var(--spacing) * 16);
     --spacing-3xl: calc(var(--spacing) * 32);
-}
 
-/*
-    While this feature would be nice to have, the fact this is required is a problem for me. When there
-    is a way to define a utility that changes component color via: `component-(--color-blue-400)`
-    in Tailwind v4 I will do that. Until then, this is where my proof-of-concept ends.
-*/
-@utility component {
     --color-component-lighter: color-mix(
         in oklab,
         var(--color-component) 85%,
@@ -69,6 +54,28 @@
     --color-component-darker: color-mix(
         in oklab,
         var(--color-component) 85%,
+        black
+    );
+}
+
+/*
+    prettier-ignore because it doesn't understand the --color-* syntax, and is inserting a space
+*/
+@utility component-* {
+    /* prettier-ignore */
+    --color-component-lighter: color-mix(
+        in oklab,
+        --value(--color-*) 85%,
+        white
+    );
+
+    /* prettier-ignore */
+    --color-component: --value(--color-*);
+
+    /* prettier-ignore */
+    --color-component-darker: color-mix(
+        in oklab,
+        --value(--color-*) 85%,
         black
     );
 }
