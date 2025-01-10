@@ -37,13 +37,13 @@
 
     /* Utility */
 
-    --spacing-xs: calc(var(--spacing) * 0.5);
-    --spacing-sm: calc(var(--spacing) * 1);
-    --spacing-md: calc(var(--spacing) * 2);
-    --spacing-lg: calc(var(--spacing) * 4);
-    --spacing-xl: calc(var(--spacing) * 8);
-    --spacing-2xl: calc(var(--spacing) * 16);
-    --spacing-3xl: calc(var(--spacing) * 32);
+    --spacing-xs: --spacing(0.5);
+    --spacing-sm: --spacing(1);
+    --spacing-md: --spacing(2);
+    --spacing-lg: --spacing(4);
+    --spacing-xl: --spacing(8);
+    --spacing-2xl: --spacing(16);
+    --spacing-3xl: --spacing(32);
 
     --color-component-lighter: color-mix(
         in oklab,
