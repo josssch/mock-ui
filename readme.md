@@ -51,6 +51,33 @@ If you need to pass in some fancily styled elements it's worth noting that all c
 <MockInput {right} />
 ```
 
+### Example 3 / Recoloring Components
+
+All components primarily make use of `var(--color-component)` for their coloring. Through the power of Tailwind, it's now very easy to change the color of a component or a group of components.
+
+```svelte
+<!-- this makes the button turn red -->
+<MockButton
+    class="component-red-500"
+    label="Hello world"
+/>
+```
+
+The format is `component-<color>` where `<color>` is any Tailwind color. This also trickles down to child elements, so you can easily change the color of a group of components.
+
+```svelte
+<!-- makes both buttons red -->
+<div class="component-red-500">
+    <MockButton label="Hello world" />
+    <MockButton label="Hey world" />
+</div>
+
+<!-- remains the default primary color -->
+<MockButton label="Hi world" />
+```
+
+The primary color is also configurable in the Tailwind config.
+
 ### Component Props
 
 All unknown props passed to a component are passed to the target component element. Which means, aside from wrapper elements, you aren't missing access to any attributes on mock components.
