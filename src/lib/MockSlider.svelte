@@ -31,27 +31,23 @@
 />
 
 <style>
-    input {
-        &::-webkit-slider-thumb,
-        &::-moz-range-thumb {
-            appearance: none;
+    input::-webkit-slider-thumb,
+    input::-moz-range-thumb {
+        appearance: none;
 
-            /* stolen from `rounded-full`, even though 999px would be fine */
-            border-radius: calc(infinity * 1px);
+        /* stolen from `rounded-full`, even though 999px would be fine */
+        border-radius: calc(infinity * 1px);
 
-            background: var(--color-component);
-            border: 1px solid var(--color-edge);
+        background: var(--color-component);
+        border: 1px solid var(--color-edge);
 
-            transition: all var(--default-transition-duration)
-                var(--default-transition-timing-function);
-        }
+        transition: all var(--default-transition-duration)
+            var(--default-transition-timing-function);
     }
 
-    input:active {
-        &::-webkit-slider-thumb,
-        &::-moz-range-thumb {
-            background: var(--color-component-lighter);
-            border-color: var(--color-edge-focused);
-        }
+    input:active::-webkit-slider-thumb,
+    input:active::-moz-range-thumb {
+        background: var(--color-component-lighter);
+        border-color: var(--color-edge-focused);
     }
 </style>
