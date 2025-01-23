@@ -1,8 +1,8 @@
 # Mock UI
 
-Very simple component library made in [Svelte v5](https://svelte-5-preview.vercel.app/docs/introduction) and [Tailwind v4](https://tailwindcss.com/blog/tailwindcss-v4-alpha). The point of this for me was to test out what each update is bringing to the table. I also intend on using these components to do quick mockup UIs and projects, hence the name.
+Very simple component library made in [Svelte v5](https://svelte.dev/) and [Tailwind v4](https://tailwindcss.com/). The point of this for me was to test out what each update is bringing to the table. But now, has turned into what I consider to be a very useful component starter-pack for my projects.
 
-![Preview of Components](docs/preview.png)
+![Preview of Components](docs/preview_2025-01.png)
 
 ## Visual Design Language
 
@@ -20,7 +20,7 @@ I tried keeping a consistent design language across all components, primarily on
 
 ## API Design
 
-I have tried to make it so components make use of Svelte v5's new feature, [Snippets](https://svelte-5-preview.vercel.app/docs/snippets), wherever they can. These effectively allow for passing Svelte code as arguments, but I avoided that where I could.
+I have tried to make it so components make use of Svelte v5's new feature, [Snippets](https://svelte.dev/docs/svelte/svelte#Snippet), wherever they can. These effectively allow for passing Svelte code as arguments, but I avoided that where I could.
 
 ### Example 1 / `MockButton`
 
