@@ -34,6 +34,7 @@
     input::-webkit-slider-thumb,
     input::-moz-range-thumb {
         appearance: none;
+        cursor: grab;
 
         /* stolen from `rounded-full`, even though 999px would be fine */
         border-radius: calc(infinity * 1px);
@@ -47,7 +48,24 @@
 
     input:active::-webkit-slider-thumb,
     input:active::-moz-range-thumb {
+        cursor: grabbing;
+
         background: var(--color-component-lighter);
         border-color: var(--color-edge-focused);
+    }
+
+    input::-moz-range-progress {
+        appearance: none;
+        height: 100%;
+
+        border-radius: calc(infinity * 1px);
+
+        background: var(--color-component);
+        transition: all var(--default-transition-duration)
+            var(--default-transition-timing-function);
+    }
+
+    input:active::-moz-range-progress {
+        background: var(--color-component-lighter);
     }
 </style>
