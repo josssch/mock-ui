@@ -121,6 +121,12 @@
 
     <MockSelect disabled></MockSelect>
 
+    <MockSelect multiple>
+        <option value="1">Foo</option>
+        <option value="2">Bar</option>
+        <option value="3">Baz</option>
+    </MockSelect>
+
     {@render heading('Slider')}
 
     <MockSlider />
