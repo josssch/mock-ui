@@ -29,10 +29,10 @@
         "@sveltejs/adapter-static": "^3.0.8",
         "@sveltejs/kit": "^2.17.1",
         "@sveltejs/vite-plugin-svelte": "^4.0.4",
-        "prettier": "^3.4.2",
+        "prettier": "^3.5.0",
         "prettier-plugin-svelte": "^3.3.3",
         "prettier-plugin-tailwindcss": "^0.6.11",
-        "svelte": "^5.19.8",
+        "svelte": "^5.19.10",
         "svelte-check": "^4.1.4",
         "typescript": "^5.7.3",
         "typescript-svelte-plugin": "^0.3.45",
@@ -42,9 +42,9 @@
     "types": "./dist/index.d.ts",
     "type": "module",
     "dependencies": {
-        "@tailwindcss/vite": "^4.0.3",
+        "@tailwindcss/vite": "^4.0.6",
         "clsx": "^2.1.1",
         "tailwind-merge": "^2.6.0",
-        "tailwindcss": "^4.0.3"
+        "tailwindcss": "^4.0.6"
     }
 }
