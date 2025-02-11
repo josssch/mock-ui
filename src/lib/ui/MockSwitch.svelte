@@ -3,7 +3,7 @@
     module
 >
     import type { HTMLInputAttributes } from 'svelte/elements'
-    import type { ComponentLabelProp } from './types/component-prop-types.js'
+    import type { ComponentLabelProp } from '../types/component-prop-types.js'
 
     export interface MockSwitchProps
         extends HTMLInputAttributes,
@@ -15,8 +15,8 @@
         COMPONENT_BORDER_HOCUS,
         COMPONENT_DISABLED,
         COMPONENT_DISABLED_CONTAINER,
-    } from './tailwind-common.js'
-    import cn from './utils/class-merge.js'
+    } from '../tailwind-common.js'
+    import cn from '../utils/class-merge.js'
 
     let {
         children,

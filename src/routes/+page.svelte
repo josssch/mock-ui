@@ -1,15 +1,15 @@
 <script>
     import HeroDollar from '$lib/icons/HeroDollar.svelte'
-    import MockButton from '$lib/MockButton.svelte'
-    import MockCheckbox from '$lib/MockCheckbox.svelte'
-    import MockFileSelect from '$lib/MockFileSelect.svelte'
-    import MockInput from '$lib/MockInput.svelte'
-    import MockInputMultiline from '$lib/MockInputMultiline.svelte'
-    import MockInputSubmit from '$lib/MockInputSubmit.svelte'
-    import MockRadio from '$lib/MockRadio.svelte'
-    import MockSelect from '$lib/MockSelect.svelte'
-    import MockSlider from '$lib/MockSlider.svelte'
-    import MockSwitch from '$lib/MockSwitch.svelte'
+    import MockButton from '$lib/ui/MockButton.svelte'
+    import MockCheckbox from '$lib/ui/MockCheckbox.svelte'
+    import MockFileSelect from '$lib/ui/MockFileSelect.svelte'
+    import MockInput from '$lib/ui/MockInput.svelte'
+    import MockInputMultiline from '$lib/ui/MockInputMultiline.svelte'
+    import MockInputSubmit from '$lib/ui/MockInputSubmit.svelte'
+    import MockRadio from '$lib/ui/MockRadio.svelte'
+    import MockSelect from '$lib/ui/MockSelect.svelte'
+    import MockSlider from '$lib/ui/MockSlider.svelte'
+    import MockSwitch from '$lib/ui/MockSwitch.svelte'
 </script>
 
 {#snippet icon()}

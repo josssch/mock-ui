@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-    import HeroCircleArrow from './icons/HeroCircleArrow.svelte'
+    import HeroCircleArrow from '../icons/HeroCircleArrow.svelte'
     import MockInput from './MockInput.svelte'
 
     let { value = $bindable(''), ...props }: MockInputSubmitProps = $props()

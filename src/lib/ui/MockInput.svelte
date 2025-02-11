@@ -4,7 +4,7 @@
 >
     import type { Snippet } from 'svelte'
     import type { HTMLInputAttributes } from 'svelte/elements'
-    import type { ComponentGhostStyleProp } from './types/component-prop-types.js'
+    import type { ComponentGhostStyleProp } from '../types/component-prop-types.js'
 
     export interface MockInputProps
         extends HTMLInputAttributes,
@@ -18,8 +18,8 @@
     import {
         COMPONENT_BORDER_FOCUS,
         COMPONENT_DISABLED,
-    } from './tailwind-common.js'
-    import cn from './utils/class-merge.js'
+    } from '../tailwind-common.js'
+    import cn from '../utils/class-merge.js'
 
     let {
         left,
