@@ -48,6 +48,7 @@
         {...props}
         {type}
         class={cn(
+            'size-full',
             ghost
                 ? 'border-none'
                 : `${COMPONENT_BORDER_FOCUS} rounded-default bg-subtle px-md py-sm transition-colors`,
