@@ -2,7 +2,7 @@
 
 Very simple component library made in [Svelte v5](https://svelte.dev/) and [Tailwind v4](https://tailwindcss.com/). The point of this for me was to test out what each update is bringing to the table. But now, has turned into what I consider to be a very useful component starter-pack for my projects.
 
-![Preview of Components](docs/preview_2025-01.png)
+![Preview of Components](docs/preview_2025-02.png)
 
 ## Visual Design Language
 
