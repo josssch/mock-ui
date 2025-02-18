@@ -20,6 +20,7 @@ export default {
     tabWidth: 4,
     trailingComma: 'all',
 
+    tailwindStylesheet: './src/default.css',
     tailwindAttributes: ['tw', 'class'],
     tailwindFunctions: ['clsx', 'twMerge', 'cn'],
 

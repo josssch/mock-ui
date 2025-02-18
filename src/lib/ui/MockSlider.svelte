@@ -21,7 +21,7 @@
 <input
     {...props}
     class={cn(
-        'bg-subtle h-2 appearance-none rounded-full',
+        'h-2 appearance-none rounded-full bg-subtle',
         COMPONENT_BORDER,
         COMPONENT_DISABLED,
         clazz,

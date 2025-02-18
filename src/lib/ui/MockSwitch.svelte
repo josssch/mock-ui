@@ -28,12 +28,12 @@
 </script>
 
 <label
-    class="gap-md group/switch relative inline-flex items-center {COMPONENT_DISABLED_CONTAINER}"
+    class="group/switch relative inline-flex items-center gap-md {COMPONENT_DISABLED_CONTAINER}"
 >
     <input
         {...props}
         class={cn(
-            'bg-subtle enabled:hover:bg-subtle-lighter enabled:checked:hover:bg-component-lighter checked:bg-component peer relative h-4 w-8 shrink-0 appearance-none rounded-full transition-colors',
+            'peer relative h-4 w-8 shrink-0 appearance-none rounded-full bg-subtle transition-colors checked:bg-component enabled:hover:bg-subtle-lighter enabled:checked:hover:bg-component-lighter',
             COMPONENT_BORDER_HOCUS,
             COMPONENT_DISABLED,
             // Circle Part

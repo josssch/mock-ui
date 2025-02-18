@@ -33,7 +33,7 @@
 
 <label
     class={cn(
-        'gap-md group/file flex flex-wrap items-center',
+        'group/file flex flex-wrap items-center gap-md',
         COMPONENT_DISABLED_CONTAINER,
         clazz,
     )}

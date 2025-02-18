@@ -20,7 +20,7 @@
     <h1 class="w-full text-center text-3xl font-bold">{text}</h1>
 {/snippet}
 
-<div class="gap-xl p-xl flex flex-wrap items-start justify-center">
+<div class="flex flex-wrap items-start justify-center gap-xl p-xl">
     {@render heading('Buttons')}
 
     <MockButton>
@@ -28,7 +28,7 @@
         <span>Some Text</span>
     </MockButton>
 
-    <div class="component-secondary contents">
+    <div class="contents component-secondary">
         <MockButton label="Secondary Color!" />
 
         <MockButton

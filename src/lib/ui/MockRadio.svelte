@@ -31,12 +31,12 @@
 </script>
 
 <label
-    class="gap-md group/radio relative inline-flex items-center {COMPONENT_DISABLED_CONTAINER}"
+    class="group/radio relative inline-flex items-center gap-md {COMPONENT_DISABLED_CONTAINER}"
 >
     <input
         {...props}
         class={cn(
-            'bg-subtle peer enabled:hover:bg-subtle-lighter checked:bg-component enabled:checked:hover:bg-component-lighter peer relative size-4 appearance-none rounded-full transition-colors after:scale-0 checked:after:scale-100',
+            'peer peer relative size-4 appearance-none rounded-full bg-subtle transition-colors after:scale-0 checked:bg-component checked:after:scale-100 enabled:hover:bg-subtle-lighter enabled:checked:hover:bg-component-lighter',
             COMPONENT_BORDER_HOCUS,
             COMPONENT_DISABLED,
             //

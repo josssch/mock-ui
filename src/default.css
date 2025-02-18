@@ -87,7 +87,7 @@
         I dislike this, however, in this case there is a lot being handled,
         but generally it's always better to type CSS rather than using macros
     */
-    @apply ring-primary ring-offset-background ring ring-offset-2 transition-shadow;
+    @apply ring ring-primary ring-offset-2 ring-offset-background transition-shadow;
 }
 
 html,

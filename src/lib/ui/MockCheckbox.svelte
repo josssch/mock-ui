@@ -34,12 +34,12 @@
 </script>
 
 <label
-    class="gap-md group/checkbox relative inline-flex items-center {COMPONENT_DISABLED_CONTAINER}"
+    class="group/checkbox relative inline-flex items-center gap-md {COMPONENT_DISABLED_CONTAINER}"
 >
     <input
         {...props}
         class={cn(
-            'peer bg-subtle enabled:hover:bg-subtle-lighter enabled:checked:hover:bg-component-lighter enabled:checked:bg-component shrink-0 appearance-none rounded-sm transition-colors disabled:border-transparent',
+            'peer shrink-0 appearance-none rounded-sm bg-subtle transition-colors enabled:checked:bg-component enabled:hover:bg-subtle-lighter enabled:checked:hover:bg-component-lighter disabled:border-transparent',
             COMPONENT_BORDER_HOCUS,
             COMPONENT_DISABLED,
             size,
