@@ -50,7 +50,7 @@
         class={cn(
             'size-full',
             ghost
-                ? 'border-none'
+                ? 'focus-invisible border-none'
                 : `${COMPONENT_BORDER_FOCUS} rounded-default bg-subtle px-md py-sm transition-colors`,
             COMPONENT_DISABLED,
             left && 'pl-8',

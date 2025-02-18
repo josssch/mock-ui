@@ -3,7 +3,7 @@
 @theme {
     /* Component Style Configuration */
 
-    --default-font-family: 'Recia', sans-serif;
+    --default-font-family: 'Sora', sans-serif;
     --default-transition-duration: 300ms;
 
     --radius-default: var(--radius-lg);
@@ -16,9 +16,9 @@
     --color-secondary: var(--color-rose-600);
     --color-secondary-darker: var(--color-rose-700);
 
-    --color-subtle-lighter: var(--color-stone-600);
-    --color-subtle: var(--color-stone-700);
-    --color-subtle-darker: var(--color-stone-800);
+    --color-subtle-lighter: var(--color-neutral-600);
+    --color-subtle: var(--color-neutral-700);
+    --color-subtle-darker: var(--color-neutral-800);
 
     /* Default Component Color */
 
@@ -26,8 +26,8 @@
 
     /* Page Colors */
 
-    --color-background: var(--color-stone-900);
-    --color-text: var(--color-stone-100);
+    --color-background: var(--color-neutral-900);
+    --color-text: var(--color-neutral-100);
 
     /* Border Colors */
 
@@ -80,9 +80,11 @@
     );
 }
 
-*:focus-visible {
+* {
     outline: none;
+}
 
+*:not(.focus-invisible):focus-visible {
     /*
         I dislike this, however, in this case there is a lot being handled,
         but generally it's always better to type CSS rather than using macros
