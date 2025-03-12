@@ -8,8 +8,8 @@
 </script>
 
 <script lang="ts">
-    import { COMPONENT_BORDER, COMPONENT_DISABLED } from '../tailwind-common.js'
-    import cn from '../utils/class-merge.js'
+    import cn from '$lib/utils/class-merge.js'
+    import { COMPONENT_BORDER, COMPONENT_DISABLED } from './tailwind-common.js'
 
     let {
         value = $bindable(0),

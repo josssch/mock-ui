@@ -6,7 +6,7 @@
     import type {
         ComponentGhostStyleProp,
         ComponentLabelProp,
-    } from '../types/component-prop-types.js'
+    } from './types.js'
 
     export interface MockButtonProps
         extends HTMLButtonAttributes,
@@ -19,11 +19,11 @@
 </script>
 
 <script lang="ts">
+    import cn from '$lib/utils/class-merge.js'
     import {
         COMPONENT_BORDER_HOCUS,
         COMPONENT_DISABLED,
-    } from '../tailwind-common.js'
-    import cn from '../utils/class-merge.js'
+    } from './tailwind-common.js'
 
     let {
         href,

@@ -13,11 +13,11 @@
 <script lang="ts">
     import { browser } from '$app/environment'
 
+    import cn from '$lib/utils/class-merge.js'
     import {
         COMPONENT_BORDER_FOCUS,
         COMPONENT_DISABLED,
-    } from '../tailwind-common.js'
-    import cn from '../utils/class-merge.js'
+    } from './tailwind-common.js'
 
     let {
         value = $bindable(''),

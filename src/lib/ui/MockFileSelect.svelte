@@ -3,9 +3,9 @@
     module
 >
     import type { HTMLInputAttributes } from 'svelte/elements'
-    import type { ComponentLabelProp } from '../types/component-prop-types.js'
+    import type { ComponentLabelProp } from './types.js'
 
-    import cn from '../utils/class-merge.js'
+    import cn from '$lib/utils/class-merge.js'
 
     export interface MockFileProps
         extends HTMLInputAttributes,
@@ -15,8 +15,8 @@
 </script>
 
 <script lang="ts">
-    import { COMPONENT_DISABLED_CONTAINER } from '../tailwind-common.js'
     import MockButton from './MockButton.svelte'
+    import { COMPONENT_DISABLED_CONTAINER } from './tailwind-common.js'
 
     let {
         label,
