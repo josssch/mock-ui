@@ -39,9 +39,14 @@
 
     <MockButton
         href="#button"
-        label="Ghost"
+        label="Ghost Link"
         ghost
         small
+    />
+
+    <MockButton
+        label="Ghost Button"
+        ghost
     />
 
     <MockButton

@@ -30,6 +30,9 @@
     /* Default Component Background Color */
     --color-component: var(--color-primary);
 
+    /* Color for Text Against the Component Background Color */
+    --color-component-text: var(--color-white);
+
     /* Component Border Colors */
 
     --color-edge: rgba(255, 255, 255, 0.25);

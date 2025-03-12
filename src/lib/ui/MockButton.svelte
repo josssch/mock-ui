@@ -50,14 +50,14 @@
     {href}
     {type}
     class={cn(
-        'group/button flex cursor-pointer flex-wrap items-center gap-sm font-medium disabled:bg-subtle',
+        'group/button flex cursor-pointer flex-wrap items-center gap-sm rounded-default font-medium disabled:bg-subtle',
         COMPONENT_DISABLED,
         ghost
-            ? 'hover:underline'
-            : `${COMPONENT_BORDER_HOCUS} rounded-default bg-gradient-to-t transition active:transition-none enabled:from-component enabled:to-component-lighter enabled:active:translate-y-0.5`,
+            ? 'transition-colors hover:bg-subtle-darker'
+            : `${COMPONENT_BORDER_HOCUS} bg-gradient-to-t text-component-text transition active:transition-none enabled:from-component enabled:to-component-lighter enabled:active:translate-y-0.5`,
         // unless we have the `small` flag, apply padding
         // and make it even based on whether it's a circle
-        !small ? (circle ? 'p-sm' : 'px-md py-sm') : '',
+        !small ? (circle ? 'p-sm' : 'px-md py-sm') : 'px-sm',
         circle && 'aspect-square rounded-full',
         clazz,
     )}
