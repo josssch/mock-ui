@@ -96,12 +96,12 @@
 html,
 body {
     min-height: 100dvh;
+    height: 100%;
+
     text-underline-offset: 4px;
 }
 
 body {
     background-color: var(--color-background);
     color: var(--color-text);
-
-    height: 100%;
 }
