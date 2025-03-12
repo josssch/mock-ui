@@ -1,10 +1,7 @@
 @import 'tailwindcss';
 
 @theme {
-    /* Component Style Configuration */
-
-    --default-font-family: 'Sora', sans-serif;
-    --default-transition-duration: 300ms;
+    /* Component Styles */
 
     --radius-default: var(--radius-lg);
 
@@ -16,24 +13,28 @@
     --color-secondary: var(--color-rose-600);
     --color-secondary-darker: var(--color-rose-700);
 
+    /* Component Subtle Colors */
+
     --color-subtle-lighter: var(--color-neutral-600);
     --color-subtle: var(--color-neutral-700);
     --color-subtle-darker: var(--color-neutral-800);
 
-    /* Default Component Color */
-
+    /* Default Component Background Color */
     --color-component: var(--color-primary);
 
-    /* Page Colors */
-
-    --color-background: var(--color-neutral-900);
-    --color-text: var(--color-neutral-100);
-
-    /* Border Colors */
+    /* Component Border Colors */
 
     --color-edge: rgba(255, 255, 255, 0.25);
     --color-edge-focused: rgba(255, 255, 255, 0.5);
     --color-edge-disabled: transparent;
+
+    /* Page Styles */
+
+    --default-font-family: 'Sora', sans-serif;
+    --default-transition-duration: 300ms;
+
+    --color-background: var(--color-neutral-900);
+    --color-text: var(--color-neutral-100);
 
     /* Utility */
 
