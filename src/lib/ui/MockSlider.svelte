@@ -9,7 +9,10 @@
 
 <script lang="ts">
     import cn from '$lib/utils/class-merge.js'
-    import { COMPONENT_BORDER, COMPONENT_DISABLED } from './tailwind-common.js'
+    import {
+        COMPONENT_BORDER_HOCUS,
+        COMPONENT_DISABLED,
+    } from './tailwind-common.js'
 
     let {
         value = $bindable(0),
@@ -21,8 +24,9 @@
 <input
     {...props}
     class={cn(
-        'h-2 appearance-none rounded-full bg-container-dim',
-        COMPONENT_BORDER,
+        '[--height:--spacing(4)] [--width:--spacing(64)]',
+        'h-(--height) w-(--width) appearance-none rounded-full transition-colors',
+        COMPONENT_BORDER_HOCUS,
         COMPONENT_DISABLED,
         clazz,
     )}
@@ -31,23 +35,55 @@
 />
 
 <style>
-    input::-webkit-slider-thumb,
-    input::-moz-range-thumb {
+    input {
+        /* 2px is border-width * 2 */
+        --adjusted-height: calc(var(--height) - 2px);
+
         appearance: none;
+        overflow: hidden;
 
-        /* stolen from `rounded-full`, even though 999px would be fine */
-        border-radius: calc(infinity * 1px);
-
-        background: var(--color-component);
-        border: 1px solid var(--color-outline-dim);
-
-        transition: all var(--default-transition-duration)
-            var(--default-transition-timing-function);
+        background-color: var(--color-container-dim);
     }
 
-    input:active::-webkit-slider-thumb,
-    input:active::-moz-range-thumb {
-        background: var(--color-component);
-        border-color: var(--color-outline);
+    input:enabled:hover {
+        background-color: var(--theme-container);
+    }
+
+    input::-webkit-slider-runnable-track {
+        -webkit-appearance: none;
+    }
+
+    input::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        cursor: ew-resize;
+
+        width: var(--adjusted-height);
+        height: var(--adjusted-height);
+
+        background-color: var(--color-on-component);
+        border-radius: calc(1px * infinity);
+
+        box-shadow: calc(var(--width) * -1 - var(--adjusted-height) / 2) 0 0
+            var(--width) var(--color-component);
+    }
+
+    input::-moz-range-progress {
+        height: 100%;
+        background-color: var(--color-component);
+    }
+
+    /*
+        As far as my testing goes, placing this and the -webkit-slider-thumb together
+        results in either one of them not working, so duplicate styles for now.
+    */
+    input::-moz-range-thumb {
+        appearance: none;
+        cursor: ew-resize;
+
+        width: var(--adjusted-height);
+        height: var(--adjusted-height);
+
+        border: unset;
+        border-radius: calc(1px * infinity);
     }
 </style>
