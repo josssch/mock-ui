@@ -36,7 +36,7 @@
     <input
         {...props}
         class={cn(
-            'peer size-4 shrink-0 appearance-none rounded-sm bg-subtle transition-colors enabled:checked:bg-component enabled:hover:bg-subtle-lighter enabled:checked:hover:bg-component-lighter disabled:border-transparent',
+            'peer size-4 shrink-0 appearance-none rounded-sm bg-container-dim transition-colors enabled:checked:bg-component enabled:not-checked:hover:bg-container disabled:border-transparent',
             COMPONENT_BORDER_HOCUS,
             COMPONENT_DISABLED,
             clazz,
@@ -50,7 +50,7 @@
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         fill="currentColor"
-        class="absolute size-4 scale-50 opacity-0 transition peer-checked:scale-90 peer-checked:opacity-100"
+        class="absolute size-4 scale-50 text-on-component opacity-0 transition peer-checked:scale-90 peer-checked:opacity-100"
     >
         <path
             fill-rule="evenodd"
@@ -59,7 +59,7 @@
         />
     </svg>
 
-    <span class="peer-disabled:text-current/50">
+    <span class="peer-disabled:brightness-50">
         {#if children}
             {@render children()}
         {:else if label}

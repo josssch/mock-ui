@@ -50,11 +50,11 @@
     {href}
     {type}
     class={cn(
-        'group/button flex cursor-pointer flex-wrap items-center gap-sm rounded-default font-medium disabled:bg-subtle',
+        'group/button disabled:bg-subtle flex cursor-pointer flex-wrap items-center gap-sm rounded-default font-medium',
         COMPONENT_DISABLED,
         ghost
-            ? 'transition-colors hover:bg-subtle-darker'
-            : `${COMPONENT_BORDER_HOCUS} bg-gradient-to-t text-component-text transition active:transition-none enabled:from-component enabled:to-component-lighter enabled:active:translate-y-0.5`,
+            ? 'transition-colors hover:bg-surface-bright'
+            : `${COMPONENT_BORDER_HOCUS} text-on-component transition active:transition-none enabled:bg-component enabled:active:translate-y-0.5`,
         // unless we have the `small` flag, apply padding
         // and make it even based on whether it's a circle
         !small ? (circle ? 'p-sm' : 'px-md py-sm') : 'px-sm',

@@ -32,8 +32,8 @@
         <MockButton label="Secondary Color!" />
 
         <MockButton
-            class="component-purple-600"
-            label="Some Other Color"
+            class="component-purple-600/purple-50"
+            label="Third Color!"
         />
     </div>
 

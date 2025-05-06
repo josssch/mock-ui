@@ -25,7 +25,7 @@
 <select
     {...props}
     class={cn(
-        'group/select rounded-default bg-subtle px-md py-sm transition-colors',
+        'group/select rounded-default bg-container-dim px-md py-sm transition-colors',
         COMPONENT_BORDER_HOCUS,
         COMPONENT_DISABLED,
         clazz,
