@@ -7,11 +7,11 @@
  * should behave and merge as expected without then need for `!important`.
  */
 
-export const COMPONENT_BORDER = 'border border-edge'
-export const COMPONENT_BORDER_FOCUS = `${COMPONENT_BORDER} focus:border-edge-focused`
-export const COMPONENT_BORDER_HOCUS = `${COMPONENT_BORDER_FOCUS} enabled:hover:border-edge-focused`
+export const COMPONENT_BORDER = 'border border-outline-dim'
+export const COMPONENT_BORDER_FOCUS = `${COMPONENT_BORDER} focus:border-outline`
+export const COMPONENT_BORDER_HOCUS = `${COMPONENT_BORDER_FOCUS} enabled:hover:border-outline`
 
 export const COMPONENT_DISABLED =
-    'disabled:border-edge-disabled disabled:cursor-not-allowed disabled:text-current/50'
+    'disabled:border-transparent disabled:cursor-not-allowed disabled:text-current/50'
 
 export const COMPONENT_DISABLED_CONTAINER = 'has-disabled:cursor-not-allowed'

@@ -55,7 +55,7 @@
     />
 
     <span
-        class="truncate group-has-disabled/file:text-current/50 hover:text-clip"
+        class="truncate group-has-disabled/file:brightness-50 hover:text-clip"
     >
         {#if label}
             {label}

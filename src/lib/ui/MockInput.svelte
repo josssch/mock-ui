@@ -34,7 +34,7 @@
     const sideStyles = 'absolute top-1/2 size-6 -translate-y-1/2'
 </script>
 
-<div class="group/input relative">
+<div class="group/input relative text-on-container">
     {#if left}
         <span class="{sideStyles} {ghost ? 'left-1' : 'left-1.5'}">
             {@render left()}
@@ -48,7 +48,7 @@
             'h-full w-64',
             ghost
                 ? 'focus-invisible border-none'
-                : `${COMPONENT_BORDER_FOCUS} rounded-default bg-subtle px-md py-sm transition-colors`,
+                : `${COMPONENT_BORDER_FOCUS} rounded-default bg-container-dim px-md py-sm transition-colors`,
             COMPONENT_DISABLED,
             left && 'pl-8',
             right && 'pr-8',

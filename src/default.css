@@ -6,38 +6,9 @@
     --default-font-family: 'Sora', sans-serif;
     --default-transition-duration: 300ms;
 
-    --color-background: var(--color-neutral-900);
-    --color-text: var(--color-neutral-100);
-
     /* Component Styles */
 
     --radius-default: var(--radius-lg);
-
-    --color-primary-lighter: var(--color-blue-500);
-    --color-primary: var(--color-blue-600);
-    --color-primary-darker: var(--color-blue-700);
-
-    --color-secondary-lighter: var(--color-rose-500);
-    --color-secondary: var(--color-rose-600);
-    --color-secondary-darker: var(--color-rose-700);
-
-    /* Component Subtle Colors */
-
-    --color-subtle-lighter: var(--color-neutral-600);
-    --color-subtle: var(--color-neutral-700);
-    --color-subtle-darker: var(--color-neutral-800);
-
-    /* Default Component Background Color */
-    --color-component: var(--color-primary);
-
-    /* Color for Text Against the Component Background Color */
-    --color-component-text: var(--color-white);
-
-    /* Component Border Colors */
-
-    --color-edge: rgba(255, 255, 255, 0.25);
-    --color-edge-focused: rgba(255, 255, 255, 0.5);
-    --color-edge-disabled: transparent;
 
     /* Utility */
 
@@ -48,40 +19,80 @@
     --spacing-xl: --spacing(8);
     --spacing-2xl: --spacing(16);
     --spacing-3xl: --spacing(32);
-
-    --color-component-lighter: color-mix(
-        in oklab,
-        var(--color-component) 85%,
-        white
-    );
-
-    --color-component-darker: color-mix(
-        in oklab,
-        var(--color-component) 85%,
-        black
-    );
+    --spacing-4xl: --spacing(48);
 }
 
 /*
-    prettier-ignore because it doesn't understand the --color-* syntax, and is inserting a space
+    Custom Theme Definitions
+
+    - Makes use of `@theme inline` so variables can be changed dynamically.
+    - Follows a similar coloring scheme to Material Design.
+        - https://m3.material.io/styles/color/roles
 */
+
+@theme inline {
+    --color-surface: var(--theme-surface);
+    --color-surface-dim: var(--theme-surface-dim);
+    --color-surface-bright: var(--theme-surface-bright);
+    --color-on-surface: var(--theme-on-surface);
+
+    --color-container: var(--theme-container);
+    --color-container-dim: var(--theme-container-dim);
+    --color-container-bright: var(--theme-container-bright);
+    --color-on-container: var(--theme-on-container);
+
+    --color-primary: var(--theme-primary);
+    --color-on-primary: var(--theme-on-primary);
+
+    --color-component: var(--theme-component, var(--theme-primary));
+    --color-on-component: var(--theme-on-component, var(--theme-on-primary));
+
+    --color-outline: var(--theme-outline, --alpha(currentColor / 50%));
+    --color-outline-dim: var(--theme-outline-dim, --alpha(currentColor / 25%));
+    --color-outline-bright: var(
+        --theme-outline-bright,
+        --alpha(currentColor / 75%)
+    );
+
+    --color-secondary: var(--theme-secondary);
+    --color-on-secondary: var(--theme-on-secondary);
+
+    --color-error: var(--theme-error, var(--color-red-500));
+    --color-on-error: var(--theme-on-error, var(--color-red-100));
+}
+
+@utility theme-neutral {
+    --theme-surface: var(--color-neutral-900);
+    --theme-surface-dim: var(--color-neutral-950);
+    --theme-surface-bright: var(--color-neutral-800);
+    --theme-on-surface: var(--color-neutral-100);
+
+    --theme-container: var(--color-neutral-700);
+    --theme-container-dim: var(--color-neutral-800);
+    --theme-container-bright: var(--color-neutral-600);
+    --theme-on-container: var(--color-neutral-100);
+
+    --theme-primary: var(--color-blue-600);
+    --theme-on-primary: var(--color-blue-50);
+
+    --theme-secondary: var(--color-rose-600);
+    --theme-on-secondary: var(--color-rose-50);
+}
+
 @utility component-* {
     /* prettier-ignore */
-    --color-component-lighter: color-mix(
-        in oklab,
-        --value(--color-*) 85%,
-        white
-    );
+    --theme-component: --value(--color-*, [*]);
 
     /* prettier-ignore */
-    --color-component: --value(--color-*);
+    --theme-on-component: --value(--color-on-*);
 
     /* prettier-ignore */
-    --color-component-darker: color-mix(
-        in oklab,
-        --value(--color-*) 85%,
-        black
-    );
+    --theme-on-component: --modifier(--color-*, [*]);
+}
+
+:root {
+    /* Setting the default theme at this level is important so all variables are defined */
+    @apply theme-neutral;
 }
 
 * {
@@ -93,7 +104,7 @@
         I dislike this, however, in this case there is a lot being handled,
         but generally it's always better to type CSS rather than using macros
     */
-    @apply ring ring-primary ring-offset-2 ring-offset-background transition-shadow;
+    @apply ring ring-primary ring-offset-2 ring-offset-surface transition-shadow;
 }
 
 html,
@@ -105,6 +116,6 @@ body {
 }
 
 body {
-    background-color: var(--color-background);
-    color: var(--color-text);
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
 }

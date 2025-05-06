@@ -51,7 +51,7 @@
     {...props}
     oninput={fieldResizer}
     class={cn(
-        'field-sizing-content max-h-32 min-h-16 w-64 resize-none rounded-default bg-subtle px-md py-sm transition-colors',
+        'field-sizing-content max-h-32 min-h-16 w-64 resize-none rounded-default bg-container-dim px-md py-sm text-on-container transition-colors',
         COMPONENT_BORDER_FOCUS,
         COMPONENT_DISABLED,
         clazz,

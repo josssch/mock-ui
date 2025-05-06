@@ -21,7 +21,7 @@
 <input
     {...props}
     class={cn(
-        'h-2 appearance-none rounded-full bg-subtle',
+        'h-2 appearance-none rounded-full bg-container-dim',
         COMPONENT_BORDER,
         COMPONENT_DISABLED,
         clazz,
@@ -39,7 +39,7 @@
         border-radius: calc(infinity * 1px);
 
         background: var(--color-component);
-        border: 1px solid var(--color-edge);
+        border: 1px solid var(--color-outline-dim);
 
         transition: all var(--default-transition-duration)
             var(--default-transition-timing-function);
@@ -47,7 +47,7 @@
 
     input:active::-webkit-slider-thumb,
     input:active::-moz-range-thumb {
-        background: var(--color-component-lighter);
-        border-color: var(--color-edge-focused);
+        background: var(--color-component);
+        border-color: var(--color-outline);
     }
 </style>
