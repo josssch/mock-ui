@@ -99,7 +99,7 @@ Things I'd like to accomplish in this component library in order for me to consi
 - [x] `MockSelect`
     - [ ] Fix default appearance in Safari to not be glossy
 - [x] `MockSlider`
-    - [ ] Add track fill, preferably without the need for JavaScript
+    - [x] Add track fill, preferably without the need for JavaScript
 - [x] Consistently use CSS variables for coloring, this way setting a variable can trickle down to child elements and overall feel more natural to change (a lot like what's done in `MockInput` for `ghost`)
     - This is achieved now by using the custom written `component-<color>` Tailwind utility. This utility sets the `--color-component` CSS variable on the element it is applied to. This means now changing the color of a component, or even a group of components, is as simple as using `component-blue-600` as a CSS class.
 - [ ] `shadcn/ui`-like CLI for installing components
