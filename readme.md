@@ -1,10 +1,26 @@
 # Mock UI
 
-Very simple component library made in [Svelte v5](https://svelte.dev/) and [Tailwind v4](https://tailwindcss.com/). The point of this for me was to test out what each update is bringing to the table. But now, has turned into what I consider to be a very useful component starter-pack for my projects.
+This repository is a starting template for Svelte and Tailwind frontends. It provides fundamental features that I consider any website using this stack should have:
 
-![Preview of Components](docs/preview_2025-02.png)
+## What's Included
 
-## Visual Design Language
+- [Basic Form Components](#form-components)
+    - All components follow [a well-defined visual design language](#visual-design-language)
+    - Are compatiable with HTML `<form>` tags
+    - [Are easily extensible via props](#component-props)
+    - Use little to no JavaScript—try to stay as vanilla HTML as possible for both accessibility reasons and browser support reasons
+- [Tailwind Base Setup](#good-tailwind-defaults)
+    - [Colors are set up in a structured and coherant way](#colors), following Material Design's color roles system
+        - [Theming](#theming) is implemented with light/dark mode in mind, making it very easy to do after customizing your themes
+    - Custom utilities and variants are provided by default that make design consistency easier
+
+In previous interations of this repository, Mock UI was considered to be more of a starting point for **form components exclusively**. Since then, I've realized its true purpose can be far more broad.
+
+## Form Components
+
+![Preview of Components](docs/preview_2025-05.png)
+
+### Visual Design Language
 
 I tried keeping a consistent design language across all components, primarily ones that are interactable (form components).
 
@@ -17,10 +33,6 @@ I tried keeping a consistent design language across all components, primarily on
         - Their color is set to `transparent` so they don't shrink in size
     - Cursor is `not-allowed`
     - Text color should be 50% less opaque
-
-## API Design
-
-I have tried to make it so components make use of Svelte v5's new feature, [Snippets](https://svelte.dev/docs/svelte/svelte#Snippet), wherever they can. These effectively allow for passing Svelte code as arguments, but I avoided that where I could.
 
 ### Example 1 / `MockButton`
 
@@ -63,11 +75,11 @@ All components primarily make use of `var(--color-component)` for their coloring
 />
 ```
 
-The format is `component-<color>` where `<color>` is any Tailwind color. This also trickles down to child elements, so you can easily change the color of a group of components.
+The format is `component-<color>/<text-color>` where `<color>` is any Tailwind color. This also trickles down to child elements, so you can easily change the color of a group of components.
 
 ```svelte
 <!-- makes both buttons red -->
-<div class="component-red-500">
+<div class="component-red-500/red-50">
     <MockButton label="Hello world" />
     <MockButton label="Hey world" />
 </div>
@@ -76,7 +88,15 @@ The format is `component-<color>` where `<color>` is any Tailwind color. This al
 <MockButton label="Hi world" />
 ```
 
-The primary color is also configurable in the Tailwind config.
+#### Component Text Color
+
+This Tailwind utility allows for a text color modifier to be specified, if applicable. Providing a text color re-defines the `--color-on-component` to the color specified.
+
+If unspecified, tries to find a corresponding `on-` color. This means that doing `component-secondary` will automatically do this for you because `--color-on-secondary` is defined already. Writing `component-secondary/on-secondary` is redundant.
+
+### More Examples
+
+For more code examples take a look at [the default +page.svelte](src/routes/+page.svelte).
 
 ### Component Props
 
@@ -90,22 +110,48 @@ All classes passed into `class` on all components are merged with `tailwind-merg
 
 All components are designed to be keyboard accessible, by keeping them as simple and as close to their original counterparts as possible. All components work with plain `<form>` tags.
 
+## Good Tailwind Defaults
+
+This repository contains a default Tailwind config that I think is best for general purpose website development. The focus behind these utilities is to provide a means for creating consistent UI.
+
+### Colors
+
+The colors specified by default are meant to be for easy theming, and follow a similar pattern to Material Design. This means colors are categorized into roles:
+
+```css
+--color-primary: var(--color-blue-500);
+--color-on-primary: var(--color-blue-50);
+```
+
+The focus is separating between background colors and text colors, where text colors compatiable with certain backgrounds begin with an `on-` prefix.
+
+Read more about [Material Theme's color roles](https://m3.material.io/styles/color/roles#19e75989-7485-4f5b-a769-940c4e4364bc) to learn more.
+
+### Pre-defined Spacing
+
+For consistent spacing in paddings, margins, gaps, etc. pre-defined spacing have been defined. It follows a similar pattern to some other utilities: `xs`, `sm`, `md`, `lg`, `xl`, etc.
+
+These utilities follow an expontential growth for the 5 mentioned above, but upon reaching `2xl`, `3xl`, `4xl`, will instead increase by `--spacing(16)` each time. This is because past a certain point it begins to get ridiulously large and impractical. Making the increments cap at `--spacing(16)` means it's far easier to find an in between when needed.
+
+### Theming
+
+All colors are defined at once in a theme definition utility (`theme-<name>`). This means that for sites that should want to implement light/dark mode or custom theming for their users, doing so should be as simple as overriding the variables defined.
+
+To see what a theme definition looks like, [take a look at the default `theme-neutral`](https://github.com/josssch/mock-ui/blob/9e19ce401c66a16446fff1e55ff179afa738901e/src/default.css#L64-L81).
+
+The [default theme should always be applied on the `:root` selector](https://github.com/josssch/mock-ui/blob/9e19ce401c66a16446fff1e55ff179afa738901e/src/default.css#L93-L96). This ensures all theme variables are properly defined and should any overrides take place with missing colors, that there are fallbacks.
+
+Any further themes should be controlled at the `body` level or nested level by using the defined `theme-<name>` utility class. **It must be an `@utility` if full Tailwind functionality is desired.**
+
 ## Todo
 
-Things I'd like to accomplish in this component library in order for me to consider it complete.
+Things I'd like to accomplish in this repository in order for me to consider it complete.
 
-- [x] `MockFileSelect`
-    - [ ] Make inner `MockButton` not require an onclick handler, likely the solution will be replacing the button with a different element
-- [x] `MockSelect`
-    - [ ] Fix default appearance in Safari to not be glossy
-- [x] `MockSlider`
-    - [x] Add track fill, preferably without the need for JavaScript
-- [x] Consistently use CSS variables for coloring, this way setting a variable can trickle down to child elements and overall feel more natural to change (a lot like what's done in `MockInput` for `ghost`)
-    - This is achieved now by using the custom written `component-<color>` Tailwind utility. This utility sets the `--color-component` CSS variable on the element it is applied to. This means now changing the color of a component, or even a group of components, is as simple as using `component-blue-600` as a CSS class.
+- [ ] Default light/dark mode themes and Tailwind setup
+- [ ] SEO tags setup, since implementing this in Svelte is still awkward
+- [ ] A good way to generate color pallettes and reduce repetition
+    - In Tailwind colors are defined with different brightness levels, being `50`, `100, 200, ..., 900`, and `950`. These are very helpful, but in most cases doing this for each color can be very tedious. For colors in the theme (primary, secondary, container), there should be dim/bright/brighter variants without the need to define them.
+- [ ] Make inner `MockButton` in `MockFileSelect` not require an onclick handler, likely the solution will be replacing the button with a different element
+- [ ] Fix default appearance for `MockSelect` in Safari to not be glossy
 - [ ] `shadcn/ui`-like CLI for installing components
 - [ ] For components where they are comprised of several HTML elements, it's not immediately clear where the rest of the `$props()` go. Furthermore, it's _annoying_ you have to even choose where they go, **a prop grouping API** where other elements can be specified with a prefix (e.g. `<el>-<prop>`, `label-class="max-w-36"` makes `class` apply to `label`, `svg-class="size-24"` applies `class` to a given `svg`, etc.)
-
-## Final Notes
-
-- I have not set this up to be used as a library, but more as a boilerplate repository
-- The current set of components currently are focused around being form compatible
