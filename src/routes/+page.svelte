@@ -128,7 +128,18 @@
 
     {@render heading('Slider')}
 
-    <MockSlider />
+    <MockSlider
+        value={50}
+        min={0}
+        max={100}
+    />
+
+    <MockSlider
+        value={25}
+        min={0}
+        max={100}
+        disabled
+    />
 
     {@render heading('Radio Buttons')}
 
