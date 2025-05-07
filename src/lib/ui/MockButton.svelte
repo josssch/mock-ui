@@ -50,7 +50,7 @@
     {href}
     {type}
     class={cn(
-        'group/button disabled:bg-subtle flex cursor-pointer flex-wrap items-center gap-sm rounded-default font-medium',
+        'group/button flex cursor-pointer flex-wrap items-center gap-sm rounded-default font-medium disabled:bg-container-dim',
         COMPONENT_DISABLED,
         ghost
             ? 'transition-colors hover:bg-surface-bright'
