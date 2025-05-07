@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import HeroDollar from '$lib/icons/HeroDollar.svelte'
     import MockButton from '$lib/ui/MockButton.svelte'
     import MockCheckbox from '$lib/ui/MockCheckbox.svelte'
@@ -16,7 +16,7 @@
     <HeroDollar class="text-focus size-6" />
 {/snippet}
 
-{#snippet heading(/** @type {string} */ text)}
+{#snippet heading(text: string)}
     <h1 class="w-full text-center text-3xl font-bold">{text}</h1>
 {/snippet}
 

@@ -53,14 +53,18 @@ If you need to pass in some fancily styled elements it's worth noting that all c
 `MockInput` allows you to pass snippets to render buttons or icons on the left or right side of the input field.
 
 ```svelte
-{#snippet right()}
-    <Icon
-        class="size-6"
-        data={faX}
-    />
-{/snippet}
-
-<MockInput {right} />
+<MockInput>
+    <!--
+        Nesting the snippet is the same as defining
+        this snippet earlier and passing it as a prop
+    -->
+    {#snippet right()}
+        <Icon
+            class="size-6"
+            data={faX}
+        />
+    {/snippet}
+</MockInput>
 ```
 
 ### Example 3 / Recoloring Components
