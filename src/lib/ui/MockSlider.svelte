@@ -43,47 +43,53 @@
         overflow: hidden;
 
         background-color: var(--color-container-dim);
-    }
 
-    input:enabled:hover {
-        background-color: var(--theme-container);
-    }
+        &:enabled:hover {
+            background-color: var(--theme-container);
+        }
 
-    input::-webkit-slider-runnable-track {
-        -webkit-appearance: none;
-    }
+        &::-webkit-slider-runnable-track {
+            -webkit-appearance: none;
+        }
 
-    input::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        cursor: ew-resize;
+        &:enabled::-webkit-slider-thumb {
+            cursor: ew-resize;
+        }
 
-        width: var(--adjusted-height);
-        height: var(--adjusted-height);
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
 
-        background-color: var(--color-on-component);
-        border-radius: calc(1px * infinity);
+            width: var(--adjusted-height);
+            height: var(--adjusted-height);
 
-        box-shadow: calc(var(--width) * -1 - var(--adjusted-height) / 2) 0 0
-            var(--width) var(--color-component);
-    }
+            background-color: var(--color-on-component);
+            border-radius: calc(1px * infinity);
 
-    input::-moz-range-progress {
-        height: 100%;
-        background-color: var(--color-component);
-    }
+            box-shadow: calc(var(--width) * -1 - var(--adjusted-height) / 2) 0 0
+                var(--width) var(--color-component);
+        }
 
-    /*
-        As far as my testing goes, placing this and the -webkit-slider-thumb together
-        results in either one of them not working, so duplicate styles for now.
-    */
-    input::-moz-range-thumb {
-        appearance: none;
-        cursor: ew-resize;
+        &::-moz-range-progress {
+            height: 100%;
+            background-color: var(--color-component);
+        }
 
-        width: var(--adjusted-height);
-        height: var(--adjusted-height);
+        &:enabled::-moz-range-thumb {
+            cursor: ew-resize;
+        }
 
-        border: unset;
-        border-radius: calc(1px * infinity);
+        /*
+            As far as my testing goes, placing this and the -webkit-slider-thumb together
+            results in either one of them not working, so duplicate styles for now.
+        */
+        &::-moz-range-thumb {
+            appearance: none;
+
+            width: var(--adjusted-height);
+            height: var(--adjusted-height);
+
+            border: unset;
+            border-radius: calc(1px * infinity);
+        }
     }
 </style>
