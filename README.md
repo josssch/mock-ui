@@ -92,6 +92,9 @@ The format is `component-<color>/<text-color>` where `<color>` is any Tailwind c
 <MockButton label="Hi world" />
 ```
 
+> [!NOTE]
+> Using this utility automatically handles the definition of `--color-component-{bright,dim}` through use of `color-mix`, or pre-defined `--color-<color>-{bright,dim}` colors
+
 #### Component Text Color
 
 This Tailwind utility allows for a text color modifier to be specified, if applicable. Providing a text color re-defines the `--color-on-component` to the color specified.
@@ -153,9 +156,9 @@ Things I'd like to accomplish in this repository in order for me to consider it 
 
 - [ ] Default light/dark mode themes and Tailwind setup
 - [ ] SEO tags setup, since implementing this in Svelte is still awkward
-- [ ] A good way to generate color pallettes and reduce repetition
-    - In Tailwind colors are defined with different brightness levels, being `50`, `100, 200, ..., 900`, and `950`. These are very helpful, but in most cases doing this for each color can be very tedious. For colors in the theme (primary, secondary, container), there should be dim/bright/brighter variants without the need to define them.
 - [ ] Make inner `MockButton` in `MockFileSelect` not require an onclick handler, likely the solution will be replacing the button with a different element
 - [ ] Fix default appearance for `MockSelect` in Safari to not be glossy
 - [ ] `shadcn/ui`-like CLI for installing components
 - [ ] For components where they are comprised of several HTML elements, it's not immediately clear where the rest of the `$props()` go. Furthermore, it's _annoying_ you have to even choose where they go, **a prop grouping API** where other elements can be specified with a prefix (e.g. `<el>-<prop>`, `label-class="max-w-36"` makes `class` apply to `label`, `svg-class="size-24"` applies `class` to a given `svg`, etc.)
+- [x] A good way to generate color pallettes and reduce repetition
+    - In Tailwind colors are defined with different brightness levels, being `50`, `100, 200, ..., 900`, and `950`. These are very helpful, but in most cases doing this for each color can be very tedious. For colors in the theme (primary, secondary, container), there should be dim/bright/brighter variants without the need to define them.
