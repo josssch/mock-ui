@@ -54,7 +54,7 @@
         COMPONENT_DISABLED,
         ghost
             ? 'transition-colors hover:bg-surface-bright'
-            : `${COMPONENT_BORDER_HOCUS} text-on-component transition active:transition-none enabled:bg-component enabled:active:translate-y-0.5`,
+            : `${COMPONENT_BORDER_HOCUS} text-on-component transition active:transition-none enabled:bg-component enabled:active:bg-component-bright`,
         // unless we have the `small` flag, apply padding
         // and make it even based on whether it's a circle
         !small ? (circle ? 'p-sm' : 'px-md py-sm') : 'px-sm',

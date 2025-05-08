@@ -41,12 +41,6 @@
     --color-container-bright: var(--theme-container-bright);
     --color-on-container: var(--theme-on-container);
 
-    --color-primary: var(--theme-primary);
-    --color-on-primary: var(--theme-on-primary);
-
-    --color-component: var(--theme-component, var(--theme-primary));
-    --color-on-component: var(--theme-on-component, var(--theme-on-primary));
-
     --color-outline: var(--theme-outline, --alpha(currentColor / 50%));
     --color-outline-dim: var(--theme-outline-dim, --alpha(currentColor / 25%));
     --color-outline-bright: var(
@@ -54,10 +48,27 @@
         --alpha(currentColor / 75%)
     );
 
+    --color-primary: var(--theme-primary);
+    --color-primary-dim: var(--theme-primary-dim);
+    --color-primary-bright: var(--theme-primary-bright);
+    --color-on-primary: var(--theme-on-primary);
+
     --color-secondary: var(--theme-secondary);
+    --color-secondary-dim: var(--theme-secondary-dim);
+    --color-secondary-bright: var(--theme-secondary-bright);
     --color-on-secondary: var(--theme-on-secondary);
 
+    --color-component: var(--theme-component, var(--theme-primary));
+    --color-component-dim: var(--theme-component-dim, var(--theme-primary-dim));
+    --color-component-bright: var(
+        --theme-component-bright,
+        var(--theme-primary-bright)
+    );
+    --color-on-component: var(--theme-on-component, var(--theme-on-primary));
+
     --color-error: var(--theme-error, var(--color-red-500));
+    --color-error-dim: var(--theme-error-dim, var(--color-red-600));
+    --color-error-bright: var(--theme-error-bright, var(--color-red-400));
     --color-on-error: var(--theme-on-error, var(--color-red-100));
 }
 
@@ -73,19 +84,48 @@
     --theme-on-container: var(--color-neutral-100);
 
     --theme-primary: var(--color-blue-600);
+    --theme-primary-dim: var(--color-blue-700);
+    --theme-primary-bright: var(--color-blue-500);
     --theme-on-primary: var(--color-blue-50);
 
     --theme-secondary: var(--color-rose-600);
+    --theme-secondary-dim: var(--color-rose-700);
+    --theme-secondary-bright: var(--color-rose-500);
     --theme-on-secondary: var(--color-rose-50);
 }
 
+/*
+    This utility re-defines all theme colors and tries to define brightness levels
+    dynamically where it can, using `color-mix`
+
+    All prettier-ignore's can be removed when https://github.com/prettier/prettier/pull/17362 is released
+*/
 @utility component-* {
     /* prettier-ignore */
     --theme-component: --value(--color-*, [*]);
 
+    /* 7.5% seems to be the average lightness diff between each level of Tailwind color */
+    --theme-component-dim: color-mix(
+        in oklab,
+        var(--theme-component),
+        black 7.5%
+    );
+    --theme-component-bright: color-mix(
+        in oklab,
+        var(--theme-component),
+        white 7.5%
+    );
+
+    /*
+        this kind of matching only seems to work with words, it will not work numbers (e.g. -400, -500)
+    */
+    /* prettier-ignore */
+    --theme-component-dim: --value(--color-*-dim);
+    /* prettier-ignore */
+    --theme-component-bright: --value(--color-*-bright);
+
     /* prettier-ignore */
     --theme-on-component: --value(--color-on-*);
-
     /* prettier-ignore */
     --theme-on-component: --modifier(--color-*, [*]);
 }
