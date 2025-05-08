@@ -1,9 +1,23 @@
 @import 'tailwindcss';
 
-@theme {
-    /* Page Styles */
+:root {
+    /* Font is imported in head of app.html */
+    --page-font: 'Inter', sans-serif;
+    --page-font-features: 'liga' 1, 'calt' 1, 'cv05' 1;
 
-    --default-font-family: 'Sora', sans-serif;
+    /* Doing this not only means compatibility but lower page footprint if it is supported */
+    @supports (font-variation-settings: normal) {
+        --page-font: 'InterVariable', sans-serif;
+    }
+}
+
+@theme inline {
+    /* Allows the page font to be defined in :root with conditions */
+    --default-font-family: var(--page-font);
+    --default-font-feature-settings: var(--page-font-features);
+}
+
+@theme {
     --default-transition-duration: 300ms;
 
     /* Component Styles */
