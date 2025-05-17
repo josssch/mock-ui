@@ -23,6 +23,7 @@
             class="size-full cursor-pointer"
             aria-label="Submit"
         >
+            <!-- HeroIcon's arrow-right-circle -->
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
