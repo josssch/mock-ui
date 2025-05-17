@@ -5,9 +5,15 @@
 </script>
 
 <svelte:head>
+    <!-- Inter Font -->
     <link
-        href="https://api.fontshare.com/v2/css?f[]=work-sans@1,2&f[]=sora@1,2&display=swap"
+        rel="preconnect"
+        href="https://rsms.me/"
+    />
+    <link
         rel="stylesheet"
+        href="https://rsms.me/inter/inter.css"
+        referrerpolicy="no-referrer"
     />
 </svelte:head>
 
