@@ -115,7 +115,6 @@
     All prettier-ignore's can be removed when https://github.com/prettier/prettier/pull/17362 is released
 */
 @utility component-* {
-    /* prettier-ignore */
     --theme-component: --value(--color-*, [*]);
 
     /* 7.5% seems to be the average lightness diff between each level of Tailwind color */
@@ -138,9 +137,7 @@
     /* prettier-ignore */
     --theme-component-bright: --value(--color-*-bright);
 
-    /* prettier-ignore */
     --theme-on-component: --value(--color-on-*);
-    /* prettier-ignore */
     --theme-on-component: --modifier(--color-*, [*]);
 }
 
