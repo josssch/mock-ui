@@ -10,6 +10,15 @@
     import MockSelect from '$lib/ui/MockSelect.svelte'
     import MockSlider from '$lib/ui/MockSlider.svelte'
     import MockSwitch from '$lib/ui/MockSwitch.svelte'
+
+    let primaryColor = $state('#155dfc')
+    let secondaryColor = $state('#ec003f')
+
+    $effect(() => {
+        document.body.style.setProperty('--theme-primary', primaryColor)
+        document.body.style.setProperty('--theme-component', primaryColor)
+        document.body.style.setProperty('--theme-secondary', secondaryColor)
+    })
 </script>
 
 {#snippet icon()}
@@ -21,6 +30,22 @@
 {/snippet}
 
 <div class="flex flex-wrap items-start justify-center gap-xl p-xl">
+    <label class="flex items-center gap-md">
+        Primary Color:
+        <input
+            type="color"
+            bind:value={primaryColor}
+        />
+    </label>
+
+    <label class="flex items-center gap-md">
+        Secondary Color:
+        <input
+            type="color"
+            bind:value={secondaryColor}
+        />
+    </label>
+
     {@render heading('Buttons')}
 
     <MockButton>
