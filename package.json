@@ -30,16 +30,16 @@
     "devDependencies": {
         "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
         "@sveltejs/adapter-static": "^3.0.10",
-        "@sveltejs/kit": "^2.68.0",
+        "@sveltejs/kit": "^2.69.1",
         "@sveltejs/vite-plugin-svelte": "^7.1.2",
-        "prettier": "^3.9.3",
+        "prettier": "^3.9.4",
         "prettier-plugin-svelte": "^4.1.1",
         "prettier-plugin-tailwindcss": "^0.8.0",
         "svelte": "^5.56.4",
         "svelte-check": "^4.7.1",
         "typescript": "^6.0.3",
         "typescript-svelte-plugin": "^0.3.52",
-        "vite": "^8.1.0"
+        "vite": "^8.1.3"
     },
     "dependencies": {
         "@tailwindcss/vite": "^4.3.2",
